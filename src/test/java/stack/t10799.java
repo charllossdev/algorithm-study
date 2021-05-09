@@ -70,4 +70,28 @@ public class t10799 {
 			return this.start < point && end > point;
 		}
 	}
+
+	@ParameterizedTest
+	@ValueSource(strings = {"()(((()())(())()))(())", "(((()(()()))(())()))(()())"})
+	void test2(String input) {
+		Scanner sc = new Scanner(Common.systemIn(input));
+		String msg = sc.nextLine();
+		Stack<Integer> cut = new Stack<>();
+		int position = 0;
+		int count = 0;
+		for (String s : msg.split("")) {
+			if (s.equals(")")) {
+				if (cut.peek() == position - 1) {
+					cut.pop();
+					count = count + cut.size();
+				} else {
+					cut.pop();
+					count++;
+				}
+			} else {
+				cut.push(position++);
+			}
+		}
+		System.out.println(count);
+	}
 }
