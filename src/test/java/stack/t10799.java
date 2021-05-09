@@ -19,8 +19,7 @@ public class t10799 {
 		int position = 0;
 		for (String s : msg.split("")) {
 			if (s.equals(")")) {
-				if (stack.peek().)
-
+				
 			} else {
 				stack.push(new work(position, s));
 			}
