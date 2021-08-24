@@ -22,11 +22,32 @@ public class t1927 {
 		boolean[] check = new boolean[end + 1];
 
 		for (int i = 2; i <= end; i++) {
-			if (!check[i]) {
+			if (!check[(int)i]) {
 				if (i >= start)
 					System.out.println(i);
-				for (int j = i * i; j <= end; j += i) {
-					check[j] = true;
+				for (int j = i + i; j <= end; j += i) {
+					check[(int)j] = true;
+				}
+			}
+		}
+	}
+
+	@DisplayName("N개의 수들의 소수 구하기")
+	@ParameterizedTest
+	@ValueSource(strings = {"3 100000"})
+	void countOfPrimeTest2(String input) {
+		Scanner s = new Scanner(Common.systemIn(input));
+		int start = s.nextInt();
+		int end = s.nextInt();
+
+		boolean[] check = new boolean[end + 1];
+
+		for (long i = 2; i <= end; i++) {
+			if (!check[(int)i]) {
+				if (i >= start)
+					System.out.println(i);
+				for (long j = i * i; j <= end; j += i) {
+					check[(int)j] = true;
 				}
 			}
 		}
