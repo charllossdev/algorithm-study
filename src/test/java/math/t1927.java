@@ -13,7 +13,7 @@ public class t1927 {
 
 	@DisplayName("N개의 수들의 소수 구하기")
 	@ParameterizedTest
-	@ValueSource(strings = {"3 16"})
+	@ValueSource(strings = {"3 100000"})
 	void countOfPrimeTest(String input) {
 		Scanner s = new Scanner(Common.systemIn(input));
 		int start = s.nextInt();
